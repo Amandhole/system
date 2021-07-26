@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read book</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Action</th>
+        </tr>
+        {% for i in book_data%}
+        <tr>
+            <td>{{i.title}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.author}}</td>
+            <td>{{i.publisher}}</td>
+            <td>
+                <form action="{% url 'updatebook' i.id %}" method="POST">
+                 <input type="submit" value="Update">
+                 {%csrf_token%}
+                </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    
+</body>
+</html>

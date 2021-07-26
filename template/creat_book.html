@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newbook</title>
+    <link rel="stylesheet" href="{%static 'style.css' %}">
+
+</head>
+<body>
+     <h2>Add new book record</h2>
+     <form action="{% url 'addbook' %}" method="POST">
+     {%csrf_token%}
+     <input type="text" placeholder="title" name='title'><br><br>
+     <input type="number" placeholder="price" name='price'><br><br>
+     <input type="text" placeholder="publisher" name='publisher'><br><br>
+     <input type="text" placeholder="author" name='author'><br><br>
+     <input type="submit" value="Add Book">
+     </form>   
+</body>
+</html>
